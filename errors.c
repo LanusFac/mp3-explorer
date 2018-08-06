@@ -1,0 +1,28 @@
+/* errors.c */
+
+#include <stdio.h>
+
+#include "types.h"
+#include "errors.h"
+
+char *errors[MAX_ERRORS] = {
+	MSG_OK,
+	MSG_ERROR_NULL_POINTER,
+	MSG_ERROR_PROGRAM_INVOCATION,
+	MSG_ERROR_OUT_OF_MEMORY,
+	MSG_ERROR_INVALID_INPUT_POSITION,
+	MSG_ERROR_INPUT_FILE_NOT_FOUND,
+	MSG_ERROR_EXPORTER_NOT_SET,
+	MSG_ERROR_COMPARATOR_NOT_SET,
+	MSG_ERROR_INVALID_TRACK_PARAMETER,
+	MSG_ERROR_OUT_OF_DISK_SPACE,
+	MSG_ERROR_HEADER_FILE_NOT_FOUND,
+	MSG_ERROR_FOOTER_FILE_NOT_FOUND
+};
+
+status_t print_errors (status_t status)
+{
+	fprintf(stderr, "%s\n", errors[status]);
+
+	return OK;
+}
